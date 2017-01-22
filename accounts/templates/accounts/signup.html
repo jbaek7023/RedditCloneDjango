@@ -1,0 +1,26 @@
+{% extends 'base.html'%}
+{%block content%}
+    <h1>
+        Hello There signup page
+    </h1>
+    <form method='POST' action="{% url 'accounts:signup'%}">
+    {% csrf_token %}
+        <label>
+            Username: <input type="text" name="username">
+        </label>
+        <br>
+        <label>
+            Password: <input type="password" name="passwd">
+        </label>
+        <br>
+        <label>
+            Password Confirm:<input type="password" name="passwdconfirm">
+        </label> 
+        <br>
+        <br>
+        <input type="submit" value="Signup!">
+        {%if error%}
+            {{error}}
+        {%endif%}
+    </form>
+{%endblock%}
